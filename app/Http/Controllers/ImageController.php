@@ -42,8 +42,7 @@ class ImageController extends Controller
 
             $newImage->pixelate(3);
             // take out red color and add  a bit of green and blue (R,G,B)
-            $newImage->colorize(-10, 0, 10);
-            $newImage->colorize(0, 10, 0);
+            $newImage->colorize(-20, 10, 10);
 
             $newImage->text('SHCC TEST', 200, 10, function ($font) {
                 $font->file('fonts/FunSized.ttf');
