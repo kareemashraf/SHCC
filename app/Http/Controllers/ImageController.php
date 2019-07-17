@@ -45,7 +45,6 @@ class ImageController extends Controller
             $newImage->colorize(-10, 0, 10);
             $newImage->colorize(0, 10, 0);
             
-
             $newImage->text('SHCC TEST', 200, 10, function($font) {
                 $font->file('fonts/FunSized.ttf');
                 $font->size(50);
@@ -53,7 +52,6 @@ class ImageController extends Controller
                 $font->align('center');
                 $font->valign('top');
             });
-
 
             $newImage->save($newPath.time().$name); 
 
