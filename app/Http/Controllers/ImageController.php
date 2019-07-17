@@ -17,35 +17,35 @@ class ImageController extends Controller
     public function index()
     {
         $image = ImageModel::latest()->first();
+
         return view('createimage', compact('image'));
     }
 
-
     /**
-     * Store a newly created resource in storage.
+     * Modify then Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-
         $originalImage = $request->filename;
-
         $contents = @file_get_contents($originalImage);
-        if($contents){
+
+        if ($contents) {
             $name = substr($originalImage, strrpos($originalImage, '/') + 1);
             $newImage = Image::make($originalImage);
             $newPath = public_path().'/thumbnail/';
             $originalPath = public_path().'/images/';
-            $newImage->save($originalPath.time().$name); 
+            $newImage->save($originalPath.time().$name);
 
-            $newImage->pixelate(3);    
+            $newImage->pixelate(3);
             // take out red color and add  a bit of green and blue (R,G,B)
             $newImage->colorize(-10, 0, 10);
             $newImage->colorize(0, 10, 0);
-            
-            $newImage->text('SHCC TEST', 200, 10, function($font) {
+
+            $newImage->text('SHCC TEST', 200, 10, function ($font) {
                 $font->file('fonts/FunSized.ttf');
                 $font->size(50);
                 $font->color('#a3181d');
@@ -53,17 +53,17 @@ class ImageController extends Controller
                 $font->valign('top');
             });
 
-            $newImage->save($newPath.time().$name); 
+            $newImage->save($newPath.time().$name);
 
-            $imagemodel= new ImageModel();
-            $imagemodel->filename=time().$name;
+            $imagemodel = new ImageModel();
+            $imagemodel->filename = time().$name;
             $imagemodel->save();
 
             return response()->file($newPath.time().$name);
-        }else{
-            $error = ['code'=>404,'message'=>'Invalid URL'];
+        } else {
+            $error = ['code' => 404, 'message' => 'Invalid URL'];
+
             return response()->json($error, 404);
         }
     }
-   
 }
