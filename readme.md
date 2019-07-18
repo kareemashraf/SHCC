@@ -27,6 +27,7 @@ The API is generally RESTFUL and returns results in JSON.
 * [jQuery](https://jquery.com/)
 * [Bootstrap](https://getbootstrap.com/)
 * [PhpStorm](https://www.jetbrains.com/phpstorm/)
+* [AWS](https://aws.amazon.com)
 
 <hr>
 
