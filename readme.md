@@ -13,7 +13,7 @@ The API is generally RESTFUL and returns results in JSON.
 
 |HTTP | resource | Parameters | Description |
 | --- | --- | --- | --- |
-| POST | /api/create | `filename` should containt a valid Image URL | manipulate the image (add filters) then store it |
+| POST | /api/create | `filename` should contain a valid Image URL | manipulate the image (add filters) then store it |
 
 <hr>
 
