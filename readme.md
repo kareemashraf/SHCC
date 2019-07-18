@@ -2,10 +2,19 @@
 
 # (Laravel Image intervention API)
 
+
 can be tested online on http://ec2-34-242-25-185.eu-west-1.compute.amazonaws.com/
 
-RESTFUL API 'POST' /api/create/ 
-parameter {filename}(valid image URL)
+<hr>
+
+## API
+
+The API is generally RESTFUL and returns results in JSON.
+
+|HTTP | resource | Parameters | Description |
+| --- | --- | --- | --- |
+| POST | /api/create | `filename` should containt a valid Image URL | manipulate the image (add filters) then store it |
+
 <hr>
 
 ## Built With (Tech stack)
@@ -62,16 +71,6 @@ and visit [http://localhost:8000/](http://localhost:8000/) to see the applicatio
 ```bash
 composer test
 ```
-
-
-## API
-The API is generally RESTFUL and returns results in JSON.
-
-|HTTP | resource | Parameters | Description |
-| --- | --- | --- | --- |
-| POST | /api/create | `filename` should containt a valid Image URL | manipulate the image (add filters) then store it |
-
-
 
 <hr>
 
